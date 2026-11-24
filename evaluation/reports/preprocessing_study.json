@@ -1,0 +1,144 @@
+{
+  "n_images": 190,
+  "operations": {
+    "identity": "no processing (control)",
+    "gaussian_3": "Gaussian 3x3",
+    "gaussian_5": "Gaussian 5x5",
+    "median_3": "median 3x3",
+    "median_5": "median 5x5",
+    "bilateral": "bilateral 5 / 50 / 50",
+    "clahe": "CLAHE on LAB-L",
+    "median3+clahe": "median 3x3 then CLAHE",
+    "gaussian3+clahe": "Gaussian 3x3 then CLAHE"
+  },
+  "aggregate": [
+    {
+      "operation": "identity",
+      "noise_sigma": 0.9493,
+      "sharpness": 106.706,
+      "contrast": 41.1445,
+      "entropy": 6.541,
+      "ssim_to_raw": 1.0,
+      "time_ms": 0.0019,
+      "n": 190,
+      "noise_reduction_pct": 0.0,
+      "sharpness_retained_pct": 100.0,
+      "contrast_change_pct": 0.0
+    },
+    {
+      "operation": "gaussian_3",
+      "noise_sigma": 0.7231,
+      "sharpness": 26.0228,
+      "contrast": 40.7806,
+      "entropy": 6.5377,
+      "ssim_to_raw": 0.9898,
+      "time_ms": 0.1888,
+      "n": 190,
+      "noise_reduction_pct": 23.8255,
+      "sharpness_retained_pct": 24.3874,
+      "contrast_change_pct": -0.8844
+    },
+    {
+      "operation": "gaussian_5",
+      "noise_sigma": 0.6722,
+      "sharpness": 14.2318,
+      "contrast": 40.5491,
+      "entropy": 6.5362,
+      "ssim_to_raw": 0.9796,
+      "time_ms": 0.2193,
+      "n": 190,
+      "noise_reduction_pct": 29.1946,
+      "sharpness_retained_pct": 13.3374,
+      "contrast_change_pct": -1.4472
+    },
+    {
+      "operation": "median_3",
+      "noise_sigma": 0.8187,
+      "sharpness": 65.3039,
+      "contrast": 41.0086,
+      "entropy": 6.5292,
+      "ssim_to_raw": 0.9899,
+      "time_ms": 0.0967,
+      "n": 190,
+      "noise_reduction_pct": 13.7584,
+      "sharpness_retained_pct": 61.1998,
+      "contrast_change_pct": -0.3304
+    },
+    {
+      "operation": "median_5",
+      "noise_sigma": 0.6849,
+      "sharpness": 45.423,
+      "contrast": 40.7843,
+      "entropy": 6.5151,
+      "ssim_to_raw": 0.9718,
+      "time_ms": 0.3771,
+      "n": 190,
+      "noise_reduction_pct": 27.8523,
+      "sharpness_retained_pct": 42.5683,
+      "contrast_change_pct": -0.8753
+    },
+    {
+      "operation": "bilateral",
+      "noise_sigma": 0.6562,
+      "sharpness": 100.7141,
+      "contrast": 41.0091,
+      "entropy": 6.5223,
+      "ssim_to_raw": 0.989,
+      "time_ms": 0.5235,
+      "n": 190,
+      "noise_reduction_pct": 30.8725,
+      "sharpness_retained_pct": 94.3847,
+      "contrast_change_pct": -0.3291
+    },
+    {
+      "operation": "clahe",
+      "noise_sigma": 2.472,
+      "sharpness": 276.3863,
+      "contrast": 44.6852,
+      "entropy": 6.8942,
+      "ssim_to_raw": 0.8949,
+      "time_ms": 0.9399,
+      "n": 190,
+      "noise_reduction_pct": -160.4027,
+      "sharpness_retained_pct": 259.0165,
+      "contrast_change_pct": 8.6056
+    },
+    {
+      "operation": "median3+clahe",
+      "noise_sigma": 2.1598,
+      "sharpness": 152.2579,
+      "contrast": 44.6327,
+      "entropy": 6.8884,
+      "ssim_to_raw": 0.9028,
+      "time_ms": 0.9556,
+      "n": 190,
+      "noise_reduction_pct": -127.5168,
+      "sharpness_retained_pct": 142.6891,
+      "contrast_change_pct": 8.4779
+    },
+    {
+      "operation": "gaussian3+clahe",
+      "noise_sigma": 2.0579,
+      "sharpness": 77.1291,
+      "contrast": 44.7034,
+      "entropy": 6.9033,
+      "ssim_to_raw": 0.9012,
+      "time_ms": 1.0726,
+      "n": 190,
+      "noise_reduction_pct": -116.7785,
+      "sharpness_retained_pct": 72.2819,
+      "contrast_change_pct": 8.6498
+    }
+  ],
+  "segmentation": {
+    "n": 190,
+    "usable_fraction": 0.9947368421052631,
+    "area_fraction_mean": 0.24877825285259045,
+    "area_fraction_p05": 0.048472595214843754,
+    "area_fraction_p95": 0.5503532409667952,
+    "failures_by_quality": {
+      "Dried": 1
+    }
+  },
+  "metric_caveat": "The Laplacian-MAD 'noise_sigma' cannot separate amplified noise from legitimately added high-frequency detail; CLAHE raises it by design."
+}

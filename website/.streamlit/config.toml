@@ -1,0 +1,23 @@
+# Streamlit server and theme settings for the VegCheck app.
+#
+# maxUploadSize mirrors website/utils/paths.py MAX_UPLOAD_BYTES (15 MiB). Without
+# this the uploader advertises Streamlit's 200 MB default while the application
+# rejects anything above 15 MB, which reads as a bug to the user.
+[server]
+maxUploadSize = 15
+
+[browser]
+gatherUsageStats = false
+
+# The implicit sidebar entry for app.py is labelled "app"; the application
+# renders its own named links (website/components/theme.py) instead.
+[client]
+showSidebarNavigation = false
+
+# Matches website/styles/style.css so native widgets (radio, slider, checkbox)
+# use the emerald accent rather than Streamlit's default red.
+[theme]
+primaryColor = "#0f7a4d"
+backgroundColor = "#f5faf7"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#0d2b21"

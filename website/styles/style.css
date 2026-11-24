@@ -1,0 +1,488 @@
+/* VegCheck — fresh-produce design system.
+ *
+ * Palette: deep forest ink, emerald primary, mint surface, amber caution.
+ * Everything is scoped to Streamlit's stable data-testid hooks so a Streamlit
+ * upgrade degrades to the default look instead of breaking the layout.
+ */
+
+:root {
+    --ink:        #0d2b21;
+    --ink-soft:   #3c5349;
+    --emerald:    #0f7a4d;
+    --emerald-dk: #0a5636;
+    --emerald-lt: #16a06a;
+    --mint:       #e9f7f0;
+    --mint-deep:  #d3ecdf;
+    --paper:      #f5faf7;
+    --card:       #ffffff;
+    --line:       #dcebe3;
+    --amber:      #b3760a;
+    --amber-bg:   #fff8e6;
+    --shadow-sm:  0 1px 2px rgba(13, 43, 33, 0.06), 0 2px 8px rgba(13, 43, 33, 0.05);
+    --shadow-md:  0 6px 24px rgba(13, 43, 33, 0.09);
+    --radius:     14px;
+}
+
+/* ------------------------------------------------------------------ canvas */
+.stApp {
+    background:
+        radial-gradient(1200px 520px at 82% -12%, #e4f5ec 0%, rgba(228, 245, 236, 0) 62%),
+        radial-gradient(900px 420px at -8% 4%, #eef7f1 0%, rgba(238, 247, 241, 0) 58%),
+        var(--paper);
+    color: var(--ink);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Inter, Roboto, sans-serif;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent;
+    height: 0;
+}
+
+footer, #MainMenu, [data-testid="stStatusWidget"] {
+    visibility: hidden;
+}
+
+.block-container {
+    padding-top: 1.6rem;
+    padding-bottom: 3.4rem;
+    max-width: 1120px;
+}
+
+/* ------------------------------------------------------------------ type */
+h1, h2, h3, h4 {
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    font-weight: 660;
+}
+
+h2 {
+    margin-top: 1.6rem !important;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Section headings ("1 · Provide an image") get a coloured marker. */
+h3 {
+    position: relative;
+    padding-left: 1.05rem;
+    font-size: 1.22rem !important;
+}
+
+h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.28rem;
+    bottom: 0.24rem;
+    width: 5px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--emerald-lt), var(--emerald-dk));
+}
+
+p, li, label, .stMarkdown {
+    color: var(--ink-soft);
+    line-height: 1.62;
+}
+
+a {
+    color: var(--emerald) !important;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 122, 77, 0.28);
+}
+
+a:hover { border-bottom-color: var(--emerald); }
+
+code {
+    background: var(--mint);
+    color: var(--emerald-dk);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.06rem 0.32rem;
+    font-size: 0.86em;
+}
+
+hr, [data-testid="stDivider"] hr {
+    border: none;
+    border-top: 1px dashed var(--line);
+    margin: 1.7rem 0;
+}
+
+/* ------------------------------------------------------------------ hero */
+.vegcheck-hero {
+    position: relative;
+    overflow: hidden;
+    /* A solid background-color is declared as well: white text must stay
+     * measurable (and readable) wherever the gradient is not painted. */
+    background-color: #0a3b2a;
+    background-image: linear-gradient(135deg, #0a3b2a 0%, #0d6642 58%, #0f7a4d 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 1.7rem 1.9rem 1.5rem 1.9rem;
+    margin-bottom: 1.35rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* Soft highlight so the gradient does not read as a flat block. */
+.vegcheck-hero::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -90px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 68%);
+}
+
+.vegcheck-hero h1 {
+    color: #ffffff;
+    margin: 0.1rem 0 0.4rem 0;
+    font-size: 2.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.vegcheck-hero p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 1rem;
+    max-width: 62ch;
+}
+
+.vegcheck-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.7rem !important;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.72) !important;
+    margin-bottom: 0.35rem !important;
+}
+
+.vegcheck-hero--compact { padding: 1.35rem 1.6rem 1.2rem 1.6rem; }
+.vegcheck-hero--compact h1 { font-size: 1.7rem; }
+
+.vegcheck-badges {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.vegcheck-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 0.24rem 0.78rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+    margin: 0;
+}
+
+.vegcheck-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #9ff0c4;
+    box-shadow: 0 0 0 3px rgba(159, 240, 196, 0.22);
+}
+
+/* Light badges, for use outside the hero. */
+.vegcheck-badge--light {
+    background: var(--mint);
+    border-color: var(--mint-deep);
+    color: var(--emerald-dk);
+}
+.vegcheck-badge--light::before { background: var(--emerald); box-shadow: none; }
+
+/* ------------------------------------------------------------------ cards */
+.vegcheck-note {
+    background: var(--amber-bg);
+    border: 1px solid #f4e3b8;
+    border-left: 4px solid #e2a52c;
+    color: #5c4410;
+    padding: 0.75rem 0.95rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+/* A horizontal strip of small facts. */
+.vegcheck-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.7rem;
+    margin: 0.3rem 0 1rem 0;
+}
+
+.vegcheck-fact {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.75rem 0.9rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.vegcheck-fact-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #5c7266;
+    font-weight: 600;
+}
+
+.vegcheck-fact-value {
+    font-size: 1.18rem;
+    font-weight: 680;
+    color: var(--ink);
+    margin-top: 0.18rem;
+    letter-spacing: -0.01em;
+}
+
+/* ------------------------------------------------------------------ metrics */
+[data-testid="stMetric"] {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--emerald);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem 0.8rem 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+[data-testid="stMetric"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+[data-testid="stMetricLabel"] p {
+    text-transform: uppercase !important;
+    letter-spacing: 0.075em !important;
+    font-size: 0.7rem !important;
+    font-weight: 650 !important;
+    color: #5c7266 !important;
+}
+
+div[data-testid="stMetricValue"] {
+    color: var(--ink) !important;
+    font-size: 1.42rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+}
+
+[data-testid="stMetricDelta"] { font-size: 0.75rem !important; }
+
+/* ------------------------------------------------------------------ controls */
+.stButton > button {
+    border-radius: 11px;
+    font-weight: 620;
+    padding: 0.5rem 1.15rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.stButton > button:hover {
+    border-color: var(--mint-deep);
+    background: var(--mint);
+    transform: translateY(-1px);
+}
+
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="stBaseButton-primary"] {
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-lt) 100%);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 122, 77, 0.28);
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, var(--emerald-dk) 0%, var(--emerald) 100%);
+    box-shadow: 0 7px 20px rgba(15, 122, 77, 0.34);
+}
+
+/* Upload drop zone */
+[data-testid="stFileUploaderDropzone"] {
+    background: var(--card);
+    border: 1.5px dashed var(--mint-deep);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    border-color: var(--emerald);
+    background: #fbfefc;
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+    border-radius: 9px;
+    border: 1px solid var(--emerald);
+    color: var(--emerald);
+    background: #ffffff;
+}
+
+[data-testid="stExpander"] {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+[data-testid="stExpander"] summary {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+[data-testid="stExpander"] summary:hover { color: var(--emerald); }
+
+/* Tables */
+[data-testid="stDataFrame"], [data-testid="stTable"] {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Alerts keep Streamlit's semantics, just softened. */
+[data-testid="stAlert"] {
+    border-radius: 11px;
+    border-left-width: 4px;
+}
+
+[data-testid="stImage"] img {
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+
+.stCaption, [data-testid="stCaptionContainer"] p {
+    color: #5c7266 !important;
+    font-size: 0.82rem !important;
+}
+
+/* ------------------------------------------------------------------ sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #ffffff 0%, #f2f9f5 100%);
+    border-right: 1px solid var(--line);
+}
+
+[data-testid="stSidebar"] .block-container { padding-top: 1rem; }
+
+.vegcheck-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.25rem 0 0.9rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.vegcheck-brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-lt) 100%);
+    box-shadow: 0 3px 10px rgba(15, 122, 77, 0.3);
+}
+
+.vegcheck-brand-name {
+    font-weight: 720;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.vegcheck-brand-sub {
+    font-size: 0.72rem;
+    color: #5c7266;
+    letter-spacing: 0.02em;
+}
+
+.vegcheck-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    margin: 0.15rem 0 0.2rem 0;
+}
+
+.vegcheck-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.44rem 0.6rem;
+    border-radius: 9px;
+    border-bottom: none;
+    color: var(--ink-soft) !important;
+    font-weight: 540;
+    font-size: 0.9rem;
+    transition: background 0.12s ease, color 0.12s ease;
+}
+
+.vegcheck-nav a:hover {
+    background: var(--mint);
+    color: var(--emerald-dk) !important;
+    border-bottom: none;
+}
+
+.vegcheck-nav a.active {
+    background: var(--mint);
+    color: var(--emerald-dk) !important;
+    font-weight: 680;
+    box-shadow: inset 3px 0 0 var(--emerald);
+}
+
+.vegcheck-nav-icon {
+    font-size: 0.95rem;
+    width: 1.15rem;
+    text-align: center;
+}
+
+/* Sidebar quick-facts block */
+.vegcheck-side-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0.7rem 0.8rem;
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow-sm);
+}
+
+.vegcheck-side-card b { color: var(--ink); }
+
+/* ------------------------------------------------------------------ footer */
+.vegcheck-footer {
+    margin-top: 2.2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    color: #5c7266;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* ------------------------------------------------------------------ mobile */
+@media (max-width: 640px) {
+    .block-container { padding-left: 0.85rem; padding-right: 0.85rem; }
+    .vegcheck-hero { padding: 1.2rem 1.1rem; border-radius: 16px; }
+    .vegcheck-hero h1 { font-size: 1.6rem; }
+    h3 { font-size: 1.1rem !important; }
+    div[data-testid="stMetricValue"] { font-size: 1.2rem !important; }
+}

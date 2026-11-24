@@ -1,0 +1,141 @@
+{
+  "n_images": 4286,
+  "n_features": 83,
+  "group_integrity": {
+    "cv": 5,
+    "n_groups": 2709,
+    "folds": [
+      {
+        "fold": 0,
+        "n_train": 3394,
+        "n_test": 892,
+        "groups_train": 2570,
+        "groups_test": 139,
+        "groups_shared": 0,
+        "classes_in_test": 5
+      },
+      {
+        "fold": 1,
+        "n_train": 3437,
+        "n_test": 849,
+        "groups_train": 2066,
+        "groups_test": 643,
+        "groups_shared": 0,
+        "classes_in_test": 5
+      },
+      {
+        "fold": 2,
+        "n_train": 3437,
+        "n_test": 849,
+        "groups_train": 2065,
+        "groups_test": 644,
+        "groups_shared": 0,
+        "classes_in_test": 5
+      },
+      {
+        "fold": 3,
+        "n_train": 3438,
+        "n_test": 848,
+        "groups_train": 2068,
+        "groups_test": 641,
+        "groups_shared": 0,
+        "classes_in_test": 5
+      },
+      {
+        "fold": 4,
+        "n_train": 3438,
+        "n_test": 848,
+        "groups_train": 2067,
+        "groups_test": 642,
+        "groups_shared": 0,
+        "classes_in_test": 5
+      }
+    ],
+    "group_violations": 0,
+    "passed": true
+  },
+  "scaling_leakage": {
+    "correct_per_fold": [
+      0.8547398026145894,
+      0.9363945384460237,
+      0.9481818282559008,
+      0.9328388013307242,
+      0.9271522300129972
+    ],
+    "correct_mean": 0.9198614401320471,
+    "correct_std": 0.033279972707529616,
+    "leaky_per_fold": [
+      0.8547398026145894,
+      0.9363945384460237,
+      0.9481818282559008,
+      0.9328388013307242,
+      0.9271522300129972
+    ],
+    "leaky_mean": 0.9198614401320471,
+    "leaky_std": 0.033279972707529616,
+    "delta": 0.0,
+    "note": "Scaling is a linear, label-independent transform; leakage here cannot invent signal, only shift the estimate. The small delta is expected and is reported to show the magnitude rather than to dismiss the issue."
+  },
+  "selection_leakage": {
+    "k": 20,
+    "nested_selection_mean": 0.7634629202275651,
+    "nested_selection_std": 0.03829758804726378,
+    "flat_selection_mean": 0.7527621363002737,
+    "flat_selection_std": 0.058182813149101856,
+    "inflation": -0.010700783927291457,
+    "selected_features": [
+      "val_mean",
+      "hue_hist_2",
+      "excess_green",
+      "lbp8_0",
+      "lbp8_1",
+      "lbp8_2",
+      "lbp8_5",
+      "lbp8_7",
+      "lbp8_9",
+      "lbp16_0",
+      "lbp16_2",
+      "lbp16_3",
+      "lbp16_4",
+      "lbp16_7",
+      "lbp16_8",
+      "lbp16_9",
+      "lbp16_10",
+      "lbp16_14",
+      "lbp16_15",
+      "lbp16_17"
+    ],
+    "explanation": "nested = selection re-fitted inside every fold (honest). flat = selection performed once on all training data (leaky). The Phase 1 report used neither: it cross-validated all 83 features with no selection at all, which is free of this leak."
+  },
+  "manifest_integrity": {
+    "baseline_snapshot": {
+      "files_checked": 12,
+      "changed": [],
+      "unchanged": true
+    },
+    "splits": {
+      "rows": 6150,
+      "counts": {
+        "train": 4286,
+        "test": 935,
+        "validation": 929
+      },
+      "unique_rel_paths": 6150,
+      "groups": 4540
+    },
+    "interim_artefacts": [
+      "features_train.csv",
+      "features_train.npz"
+    ],
+    "test_split_was_featurised": false,
+    "only_training_split_used": true
+  },
+  "phase1_headline": {
+    "macro_f1_mean": 0.9198614401320471,
+    "macro_f1_std": 0.033279972707529616,
+    "n_features": 83,
+    "scheme": "grouped"
+  },
+  "reproduced_exactly": true,
+  "verdict": true
+}

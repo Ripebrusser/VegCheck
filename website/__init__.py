@@ -1,0 +1,1 @@
+"""VegCheck web application package."""
